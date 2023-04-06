@@ -17,8 +17,21 @@ def hash_list_from_file_list(file_list):
         # Hash and add to the list
         hash_and_add_to_list(hash_list, text)
     
+    return hash_list
+    
 def main():
-    file_list = []
+    file_list = [
+        'testfiles/check_polygon.py',
+        'testfiles/check_polygon2.py',
+        'testfiles/testplot.py',
+        'testfiles/testplot2.py'
+    ]
+    
+    hash_list = hash_list_from_file_list(file_list)
+    
+    hash_list = sorted(hash_list)
+    
+    hash_list
     
 if __name__ == '__main__':
     main()
