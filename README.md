@@ -13,3 +13,10 @@ Tasks:
 - [ ] Compare linecount
 - [ ] Tokenize file function
 - [ ] Hash Compare function
+
+Types of clones:
+
+- Type 1: Almost exact match
+- Type 2: Renamed variables
+- Type 3: A few statements added deleted or swapped
+- Type 4: Semantic clone, but nothing looks the same
