@@ -31,7 +31,7 @@ def main():
     
     hash_list = sorted(hash_list)
     
-    hash_list
+    print(hash_list)
     
 if __name__ == '__main__':
     main()
