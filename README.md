@@ -1,4 +1,4 @@
-# CodeCloneDetector
+# Lazy Clone Detector
 
 Collaborators:
 
