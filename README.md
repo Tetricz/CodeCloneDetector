@@ -20,4 +20,4 @@ Types of clones:
 
 This project focuses on types 1 and 2.
 
-Please see the "project outline.pdf" and "diagrams".
+Please see the "project outline.pdf" and "prototype.png".
