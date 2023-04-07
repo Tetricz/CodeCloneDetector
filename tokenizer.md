@@ -8,21 +8,21 @@ Something like [code_tokenize](https://pypi.org/project/code-tokenize/), but mor
 General idea of the outcome of the tokenizer:
 
 ```python
-def funcA():
+def func():
     varA = 1
 
-def funcB():
+def func():
     varB = 2
 ```
 
 These two functions are identical except for naming. The tokenizer should _nomralize_ the names.
 
 ```python
-def funcA():
+def func():
     var_1 = 1
 
-def funcB():
-    var_2 = 2
+def func():
+    var_1 = 2
 ```
 
 ## Supported Languages
