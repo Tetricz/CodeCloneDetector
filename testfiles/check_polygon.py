@@ -1,8 +1,17 @@
+import os  # this is just for decoration to test the program
+import math # so is this
+# the above imports are just stuff
+
 def check_triangle(a, b, c):
+# next line is blank
+
+# next line is 5 whitespaces
+     
+       # indented comment
     if a == b:
         if a == c:
             if b == c:
-                return "Equilateral"
+                return "Equilateral"  # found 
             else:
                 return "Isosceles"
         else:
