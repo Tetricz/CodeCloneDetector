@@ -20,4 +20,4 @@ Types of clones:
 
 This project focuses on types 1 and 2.
 
-Please see the "[project outline.pdf](./project%20outline.pdf)" and "[LCFflow.png](./diagrams/LCFflow.pdf)".
+Please see the "[project outline.pdf](./project%20outline.pdf)" and "[LCDflow](./diagrams/LCDflow.pdf)".
