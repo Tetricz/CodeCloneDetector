@@ -1,18 +1,16 @@
 ## To run the program:  
 ``
-python preprocessor.py <filename>
+python preprocessor.py <test_folder>
 ``
 
-This will create a folder: preprocessed_*filename*
+This will read test folder and for each python (.py) file with *filename*: it will
 
-within that there will be a file for each function seen in the original file
+create a folder named: preprocessed_*filename*
+
+within that that folder will be a file for each function seen in the original file
 or..
   ``
-  python preprocessor.py <foldername>/<filename>
-  ``
-  This will create a folder *preprocessed_<foldername>*
   
-  and withing that a folder *&<filename>* and within that a file containing each function
   
   ## Output
   The program removes blank lines and comment lines. It also removes comments after code i.e.
