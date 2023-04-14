@@ -1,7 +1,7 @@
 import sys
 import os
 
-from preprocessor import preprocessor
+from utils.preprocessor import preprocessor
 
 def main(target_dir):
 
