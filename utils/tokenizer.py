@@ -29,7 +29,6 @@ class tokenizer:
                 for token in nonKeywordTokens:
                     if token[2][0] == lineNumber + 1:
                         linediff = len(token[4]) - len(line)
-                        print(linediff, token[4], line)
                         line = line[0:token[2][1]-linediff] + varTokenDictionary[token[1]] + line[token[3][1]-linediff:]
                 fileData += line
 
@@ -39,7 +38,6 @@ class tokenizer:
         print(fileData)
         print(varTokenDictionary)
         return varTokenDictionary, fileData
-
 
 if __name__ == "__main__":
     os.system('cls' if os.name == 'nt' else 'clear')
