@@ -3,6 +3,11 @@ from utils.hash_file_compare import HashFileCompare
 import sys
                 
 def main():
+    # Check argument usage
+    if len(sys.argv) < 2:
+        print("Usage: tlsh_evaluation.py input_file_list.txt")
+        exit(1)
+
     # Read list of files to hash
     input_list_file_name = sys.argv[1]
     input_list_file = open(input_list_file_name, 'r')

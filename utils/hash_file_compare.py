@@ -5,17 +5,20 @@ import tlsh
 from fuzzywuzzy import fuzz
 
 class HashFileCompare:
+    ''' Read the files specified in a list of filenames, hash them, 
+        and store the hashes with the filenames.
+    '''
     def __init__(self, file_list):
         self.hash_list = []
         
         for file_name in file_list:
-            # Read whole file. This will be replaced by individual function blocks.
             text = open(file_name, 'r').read()
         
-            # Hash and add to the list
             hash_value = tlsh.hash(bytes(text, 'utf_8'))
             self.hash_list += [(hash_value, file_name)]
-        
+    
+    ''' Compute string similarity scores between one hash and the rest of the hashes.
+    '''
     def hash_value_similarities(self, file_name):
         hash_item = [x for x in self.hash_list if x[1] is file_name][0]
         hash_list_minus = [x for x in self.hash_list if x[1] is not file_name]
