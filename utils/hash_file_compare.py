@@ -4,7 +4,7 @@ import tlsh
 # String similarity
 from fuzzywuzzy import fuzz
 
-class hash_file_compare:
+class HashFileCompare:
     def __init__(self, file_list):
         self.hash_list = []
         

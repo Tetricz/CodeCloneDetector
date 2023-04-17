@@ -1,4 +1,4 @@
-from utils import hash_file_compare
+from utils.hash_file_compare import HashFileCompare
                 
 import sys
                 
@@ -6,10 +6,10 @@ def main():
     # Read list of files to hash
     input_list_file_name = sys.argv[1]
     input_list_file = open(input_list_file_name, 'r')
-    input_list = [line for line in input_list_file]
+    input_list = [line.rstrip('\n') for line in input_list_file]
     
     # Load the input files as a hash_file_compare
-    hfc = hash_file_compare(input_list)
+    hfc = HashFileCompare(input_list)
     
     # Report their inter-file similarity scores
     for file_name in input_list:
