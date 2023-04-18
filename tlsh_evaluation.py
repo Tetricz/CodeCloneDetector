@@ -5,7 +5,7 @@ import sys
 def main():
     # Check argument usage
     if len(sys.argv) < 2:
-        print("Usage: tlsh_evaluation.py input_file_list.txt")
+        print("Usage: tlsh_evaluation.py testfiles/input_file_list.txt")
         exit(1)
 
     # Read list of files to hash
@@ -13,7 +13,7 @@ def main():
     input_list_file = open(input_list_file_name, 'r')
     input_list = [line.rstrip('\n') for line in input_list_file]
     
-    # Load the input files as a hash_file_compare
+    # Load the input files as a HashFileCompare
     hfc = HashFileCompare(input_list)
     
     # Report their inter-file similarity scores
