@@ -7,6 +7,7 @@ import importlib.util
 import inspect
 
 class preprocessor():
+
     def __init__(self):
         self.files_created = 0
         self.base_path = ""
@@ -131,7 +132,7 @@ class preprocessor():
         index = line.find("(")
         # find indent amount
         indnt = line.find("def ")
-        print(" first non blank char is in col: ", indnt)
+        #print(" first non blank char is in col: ", indnt)
         newstring = line[indnt:len(line)]
         
       
@@ -169,7 +170,7 @@ class preprocessor():
                 classname = oname
                 for mname, mobj in inspect.getmembers(oobj):
                     if inspect.isfunction(mobj):
-                        print(" class contains function",mname)
+                        #print(" class contains function",mname)
                         src = inspect.getsource(mobj)
                         #print(src)
                         self.process_class_function(classname, src, full_file_path, newpath)
@@ -214,14 +215,14 @@ class preprocessor():
             # splits into functions , split on "def"
             #print(original_file_text)
             funs = text_to_process.split("def ")
-            print(" length of funs: ",len(funs))
+            #print(" length of funs: ",len(funs))
             if len(funs) == 1:
                 ismain = True
             else:
                 ismain = False
             print("+++++++++++++++++++++++++++++++++++++++++")
             for s in funs:
-                print("length of element: ",len(s))
+                #print("length of element: ",len(s))
                 if (len(s) > 2):
                     self.process_inline_function(s, newpath, ismain)
                     print(" -------------------")
