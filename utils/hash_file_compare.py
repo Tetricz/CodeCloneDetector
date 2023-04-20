@@ -31,11 +31,3 @@ class HashFileCompare:
     '''
     def get_file_list(self):
         return [hash_item[1] for hash_item in self.hash_list]
-                
-def hash_comp_from_input_list(input_list_file_name):
-    # Read list of files to hash
-    input_list_file = open(input_list_file_name, 'r')
-    input_list = [line.rstrip('\n') for line in input_list_file]
-    
-    # Load the input files as a HashFileCompare and return it
-    return HashFileCompare(input_list) 

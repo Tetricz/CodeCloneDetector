@@ -1,7 +1,15 @@
-from utils.hash_compare import hash_comp_from_input_list
+from utils.hash_file_compare import HashFileCompare
 from utils.similarity_table import similarity_table
                 
 import sys
+
+def hash_comp_from_input_list(input_list_file_name):
+    # Read list of files to hash
+    input_list_file = open(input_list_file_name, 'r')
+    input_list = [line.rstrip('\n') for line in input_list_file]
+    
+    # Load the input files as a HashFileCompare and return it
+    return HashFileCompare(input_list) 
                 
 def main():
     # Check argument usage

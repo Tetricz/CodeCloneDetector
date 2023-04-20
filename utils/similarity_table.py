@@ -1,4 +1,4 @@
-from utils.hash_compare import HashFileCompare
+from utils.hash_file_compare import HashFileCompare
 
 def sorted_similarities(hash_comp, file_name):
     similarities = hash_comp.hash_value_similarities(file_name)
