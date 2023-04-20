@@ -1,4 +1,5 @@
-from utils.hash_file_compare import HashFileCompare
+from utils.hash_compare import hash_comp_from_input_list
+from utils.similarity_table import similarity_table
                 
 import sys
                 
@@ -9,24 +10,18 @@ def main():
         exit(1)
 
     # Read list of files to hash
-    input_list_file_name = sys.argv[1]
-    input_list_file = open(input_list_file_name, 'r')
-    input_list = [line.rstrip('\n') for line in input_list_file]
+    hash_comp = hash_comp_from_input_list(sys.argv[1])
     
-    # Load the input files as a HashFileCompare
-    hfc = HashFileCompare(input_list)
+    s_table = similarity_table(hash_comp)
     
     # Report their inter-file similarity scores
-    for file_name in input_list:
-        similarities = hfc.hash_value_similarities(file_name)
-        
-        key_function = lambda x: x[0]
-        similarities = sorted(similarities, key=key_function, reverse=True)
-        
+    for file_name in s_table:
         print(f"\nHash similarities to {file_name}:")
         
-        for s in similarities:
-            print(f"{s[0]}\t{s[1]}")
+        similarity_line = s_table[file_name]
+        
+        for score in similarity_line:
+            print(f"{score[0]}\t{score[1]}")
     
     
 if __name__ == '__main__':
