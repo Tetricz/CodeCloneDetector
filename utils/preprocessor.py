@@ -73,7 +73,7 @@ class preprocessor():
             if ndxcom == ndxnw:     # comment is the first non-whitespace
                 #print(" this line is all comment: ",line)
                 return "\n"
-            retstr = line[0:ndxcom].rstrip() + "\n"
+            retstr = line[0:ndxcom].rstrip() 
             return retstr
 #-----------------------------------------------------------------------------------
     def process_inline_function(self, function_text, path, ismain):
