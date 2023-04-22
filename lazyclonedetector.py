@@ -1,8 +1,12 @@
 import sys
 import os
+import platform
 
 from utils.preprocessor import preprocessor
 from utils.hash_file_compare import HashFileCompare
+from utils.tokenizer import tokenizer
+
+file_seperation_char = "\\"
 
 def build_paths_to_targets(target_dir):
     
@@ -51,6 +55,28 @@ def report_similarities(input_list):
         for s in similarities:
             print(f"{s[0]}\t{s[1]}")
 
+def tokenize_files_in_list(input_list):
+
+    tokenized_files = []
+
+    tkz = tokenizer()
+
+    for name in input_list:
+
+        ndx = name.rfind("\\")
+        
+        file_path = name[0:ndx]
+        filename = name[ndx+1:len(name)]
+        #print (" filename ",filename)
+
+        tk = tkz.tokenize_python(file_path,filename)
+        tkname = file_path + "/" + tk
+        #print(" ------------> tkname: ",tkname)
+        tokenized_files.append(tkname)
+    
+    return tokenized_files
+
+
 def main(target_dir):
 
     prp = preprocessor()
@@ -64,6 +90,16 @@ def main(target_dir):
     
     report_similarities(input_list)
 
+    tokenized_file_list = tokenize_files_in_list(input_list)
+    for name in tokenized_file_list:
+        print(name)
+
+    
+    print("*********************************************************************")
+    print("* After tokenization....")
+
+    report_similarities(tokenized_file_list)
+
     
 
 if __name__ == "__main__":
@@ -73,4 +109,11 @@ if __name__ == "__main__":
         print(" Usage: lazyclonedetector {filename}")
         exit()
     directory = sys.argv[1]
+
+    print(" OS is ",os.name)
+    print(" plataform: ",platform.platform())
+    running_on = platform.platform()
+    if running_on.find("windows") < 0:
+        file_seperation_char = "/"
+
     main(directory)
