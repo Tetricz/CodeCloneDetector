@@ -3,7 +3,7 @@ import tokenize
 
 class tokenizer:
 
-    def tokenize_python(filePath, filename):
+    def tokenize_python(self, filePath, filename):
         """
         Tokenizes python source code.
         Insuring standardization of variable names and function names.
@@ -35,9 +35,9 @@ class tokenizer:
         with open(filePath + "/" + tokenFileName, "w") as f:
             f.write(fileData)
 
-        print(fileData)
-        print(varTokenDictionary)
-        return varTokenDictionary, fileData
+        #print(fileData)
+        #print(varTokenDictionary)
+        return tokenFileName
 
 if __name__ == "__main__":
     os.system('cls' if os.name == 'nt' else 'clear')
