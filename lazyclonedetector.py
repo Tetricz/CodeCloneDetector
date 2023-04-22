@@ -39,7 +39,7 @@ def build_paths_to_targets(target_dir):
 
     return path_list
 
-def report_similarities(input_list):
+def report_similarities(input_list,threshold):
 
     hfc = HashFileCompare(input_list)
 
@@ -53,7 +53,8 @@ def report_similarities(input_list):
         print(f"\nHash similarities to {file_name}:")
         
         for s in similarities:
-            print(f"{s[0]}\t{s[1]}")
+            if s[0] > threshold:
+                print(f"{s[0]}\t{s[1]}")
 
 def tokenize_files_in_list(input_list):
 
@@ -88,17 +89,17 @@ def main(target_dir):
     for l in input_list:
         print(" *  ",l)
     
-    report_similarities(input_list)
+    report_similarities(input_list, .5)
 
     tokenized_file_list = tokenize_files_in_list(input_list)
-    for name in tokenized_file_list:
-        print(name)
+    #for name in tokenized_file_list:
+    #   print(name)
 
     
     print("*********************************************************************")
     print("* After tokenization....")
 
-    report_similarities(tokenized_file_list)
+    report_similarities(tokenized_file_list, .5)
 
     
 
@@ -106,7 +107,7 @@ if __name__ == "__main__":
     print(" argv: ",sys.argv)
     nargs = len(sys.argv)
     if (nargs < 2):
-        print(" Usage: lazyclonedetector {filename}")
+        print(" Usage: lazyclonedetector {foldername}")
         exit()
     directory = sys.argv[1]
 
