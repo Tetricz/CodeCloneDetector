@@ -1,7 +1,7 @@
 def check_triangle(a, b, c):
     if a == b:
         if a == c:
-            if b ==    c:
+            if b == c:
                 return "Equilateral"
             else:
                 return "Isosceles"
