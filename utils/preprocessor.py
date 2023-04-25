@@ -42,7 +42,13 @@ class preprocessor():
                 if ndxcom >= 0:
                     retline = self.process_comment_line(line,ndxcom)
                     if len(retline) > 1:
-                        outfile.write(retline+"\n")     # something left to write
+                        #outfile.write(retline+"\n")     # something left to write
+                        if indent > 0:
+                            outline = retline[indent:len(line)] + "\n"
+                        else:
+                            outline = retline + "\n"
+
+                        outfile.write(outline)   
                     continue
             
                 # check for line of whitespaces
